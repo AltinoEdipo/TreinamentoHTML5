@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="manipuladorCarros.js"></script>
+  </head>
+  <body>
+    <form class="" action="manipuladorCarros.js" method="post">
+      Código do veículo: <br>
+      <input type="number" name="codigo" value="" id="codigo">
+
+      <br><br>
+      Fabricante: <br>
+      <input type="radio" name="marca" value="Volkswagen" checked> Volkswagen<br>
+      <input type="radio" name="marca" value="FIAT"> FIAT<br>
+      <input type="radio" name="marca" value="Chevrolet"> Chevrolet<br>
+      <input type="radio" name="marca" value="Ford"> Ford
+
+      <br><br>
+      Modelo: <br>
+      <select name="modelo">
+        <option value="Gol">Gol</option>
+        <option value="Jetta">Jetta</option>
+        <option value="Uno">Uno</option>
+        <option value="Doblo">Doblo</option>
+        <option value="Corsa">Corsa</option>
+        <option value="Opala">Opala</option>
+        <option value="Ranger">Ranger</option>
+        <option value="Focus">Focus</option>
+      </select>
+
+      <br><br>
+      <input type="button" name="inserir" value="Inserir cadastro" onclick="adicionarCarro()">
+
+      <br><br><br><br>
+      <input type="button" name="apresentar" value="Apresentar Carros" onclick="apresentarCarros()">
+    </form>
+  </body>
+</html>
