@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <script type="text/javascript">
+      function lampadaAcesa() {
+        document.getElementById('imagemLampada').src="acesa.gif";
+      }
+
+      function lampadaApagada() {
+        document.getElementById('imagemLampada').src="apagada.gif";
+      }
+    </script>
+  </head>
+  <body>
+    <img src="apagada.gif" id="imagemLampada" onmouseover="lampadaAcesa()" onmouseout="lampadaApagada()">
+  </body>
+</html>
