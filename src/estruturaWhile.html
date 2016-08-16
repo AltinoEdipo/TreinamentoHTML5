@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+    function calcular() {
+      var indice = 0;
+      var numero = document.getElementById('numero').value;
+      var texto = 'Tabuada\n';
+
+      while (indice <= document.getElementById('indice').value) {
+        texto += ' ' + numero + ' x ' + indice + ' = ' + (numero * indice) + '\n';
+        indice++;
+      }
+
+      alert(texto);
+    }
+    </script>
+  </head>
+  <body>
+    <input type="number" name="numero" value="" id="numero">
+    <input type="number" name="indice" value="" id="indice">
+    <input type="button" name="name" value="Apresentar tabuada" onclick="calcular()">
+  </body>
+</html>
