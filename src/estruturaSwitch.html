@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+    var nota1 = 6;
+    var nota2 = 8;
+    var nota3 = 7;
+
+    var media = parseInt(((nota1+nota2+nota3)/3));
+
+    var resultado;
+
+    switch (media) {
+      case 10:
+        resultado = 'Aprovado. Nerd do caralho.'
+        break;
+      case 9:
+        resultado = 'Apovado. Foi bem.'
+        break;
+      case 8:
+        resultado = 'Aprovado. Tirou nota boa ainda, seu cagado'
+        break;
+      case 7:
+        resultado = 'Aprovado.'
+        break;
+      case 6:
+        resultado = 'Aprovado. Mas quase fica, heim.'
+        break;
+      case 6:
+        resultado = 'Em EXAME!'
+        break;
+      default:
+        resultado = 'Reprovado';
+        break;
+    }
+
+    alert('Sua média: ' + media
+          + '\n'
+          + 'Você está ' + resultado);
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
