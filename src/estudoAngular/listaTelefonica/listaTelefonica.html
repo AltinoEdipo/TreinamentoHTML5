@@ -22,43 +22,73 @@
     <script type="text/javascript">
       var app = angular.module("listaTelefonica", ['ngMessages']);
 
-      app.controller("listaTelefonicaCtrl", function($scope){
+      app.controller("listaTelefonicaCtrl", function($scope, $http){
         $scope.titleLista = "Lista Telefonica";
-        $scope.contatos = [
+        /*$scope.contatos = [
           {nome:'Edipo', telefone:'99449933', operadora:'TIM', cor:'blue', data: new Date()},
           {nome:'Sanni', telefone:'91110022', operadora:'Vivo', cor:'purple', data: new Date()},
           {nome:'Rhayza', telefone:'88994499', operadora:'Claro', cor:'red', data: new Date()},
           {nome:'Fernando', telefone:'84209182', operadora:'OI', cor:'black', data: new Date()}
-        ];
+        ];*/
 
-        //$scope.contatos = [];
-        $scope.operadoras = [
+        $scope.contatos = [];
+
+        var obterContatos = function() {
+          $http.get('http://10.125.2.49:8080/contatos').success((data) => {
+            $scope.contatos = data;
+          }).error(() => {
+            console.log('Errrrrroooooooooooo');
+          });
+        }
+
+        /*$scope.operadoras = [
           {nome:'TIM', codigo:'99', tipo:'T'},
           {nome:'Vivo', codigo:'91', tipo:'V'},
           {nome:'Claro', codigo:'88', tipo:'C'},
           {nome:'Oi', codigo:'84', tipo:'O'}
-        ];
+        ];*/
 
-        $scope.adicionarContato = function(contato){
+        $scope.operadoras = [];
+
+        var obterOperadora = function() {
+          $http.get('http://10.125.2.49:8080/operadoras').success((data) => {
+            $scope.operadoras = data;
+          }).error(() => {
+            console.log('Errrrrroooooooooooo');
+          });
+        }
+
+        /*$scope.adicionarContato = function(contato){
           $scope.contatos.push(angular.copy(contato));
           delete $scope.contato;
           $scope.contatoForm.$setPristine();
-        };
+        }*/
+
+        $scope.adicionarContato = function(contato){
+          $http.post('http://10.125.2.49:8080/adicionar-contato', contato).success(function(){
+            obterContatos();
+            delete $scope.contato;
+            $scope.contatoForm.$setPristine();
+          })
+        }
 
         $scope.isContatoSelecionado = function(contato){
           return contato.some((item) => {return item.selecionado});
-        };
+        }
 
         $scope.excluirContato = function(contato){
           $scope.contatos = contato.filter((item) => {return !item.selecionado});
-        };
+        }
 
         $scope.order = "";
 
         $scope.ordenarPor = function(campo){
           $scope.order = campo;
-        };
-      })
+        }
+
+        obterContatos();
+        obterOperadora();
+      });
     </script>
   </head>
   <body ng-controller="listaTelefonicaCtrl">
